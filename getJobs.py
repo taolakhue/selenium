@@ -17,6 +17,7 @@ try:
     )
 
     for element in main:
+        header = element.
         print(element.text)
 
 
