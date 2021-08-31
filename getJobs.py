@@ -13,13 +13,13 @@ driver.get("https://ca.indeed.com/jobs?q=computer%20science%20internship&l=Toron
 
 try:
     main = WebDriverWait(driver,10).until(
-        EC.presence_of_all_elements_located((By.ID,"mosaic-zone-jobcards"))
+        EC.presence_of_element_located((By.ID,"mosaic-zone-jobcards"))
     )
 
-    for element in main:
-        print(element.text)
-
-
+    job_titles = main.find_elements_by_tag_name("h2")
+    for title in job_titles:
+        print(title.text)
 
 finally:
+    time.sleep(5)
     driver.quit()
